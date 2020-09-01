@@ -1,0 +1,15 @@
+name: Test the GitHub action
+on:
+  - push
+  - pull_request
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v2
+      - name: Compile test file
+        uses: ./
+        with:
+          task: main.pdf
+          working_directory: test/

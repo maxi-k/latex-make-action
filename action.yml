@@ -1,0 +1,18 @@
+name: GitHub Action for LaTeX using Make
+description: GitHub Action to compile LaTeX documents using a Makefile
+author: Maximilian Kuschewski
+inputs:
+  task:
+    description: The make command to run
+    required: true
+  working_directory:
+    description: The working directory for the LaTeX engine
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.task }}
+    - ${{ inputs.working_directory }}
+branding:
+  icon: book
+  color: red
